@@ -1,0 +1,85 @@
+/*
+General layout
+*/
+html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+/*themes
+*/
+:root {
+    --darktext: hsl(218, 44%, 22%);
+    --lightcolor: #ffffff;
+    --lightcolor2:hsl(220, 15%, 55%);
+    --lightcolor3:hsl(219, 18%, 60%);
+    --nearinvcolor: hsl(212, 45%, 89%);
+  }
+/*
+fonts
+*/
+@font-face {
+    font-family: outfit;
+    src: url('../fonts/Outfit/Outfit-VariableFont_wght.ttf');
+}
+/*main layout*/
+body{
+    font-family: outfit, Arial;
+    background: var(--nearinvcolor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body p{
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--lightcolor2);
+}
+h2{
+    font-size: 1.2em;
+    color:  var(--darktext);
+    font-weight: 700;
+}
+/*
+card layout
+*/
+.card{
+    display: block;
+    padding: 15px;
+    background-color: #ffffff;
+    text-align: center;
+    width: 25%;
+    height: fit-content;
+    max-width: 30%;
+    box-sizing: border-box;
+    border-radius: 1em;
+}
+.card-img{
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0.8em;
+}
+.card-text{
+    padding: 0 15px;
+}
+/*
+footer, bottom
+*/
+footer.attribution{
+    display: block;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+footer{
+    color:var(--lightcolor2);
+}
+footer a{
+    color:var(--lightcolor2);
+}
+footer a:hover{
+    color:var(--lightcolor3);
+}
