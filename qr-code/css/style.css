@@ -1,7 +1,7 @@
 /*
 General layout
 */
-html{
+html, body{
     margin: 0;
     padding: 0;
     height: 100%;
@@ -29,9 +29,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    margin: 0;
-    padding: 0;
 }
 body p{
     font-size: 1em;
@@ -51,9 +48,8 @@ card layout
     padding: 15px;
     background-color: #ffffff;
     text-align: center;
-    width: 25%;
+    width: calc(16em + 5%);
     height: fit-content;
-    max-width: 30%;
     box-sizing: border-box;
     border-radius: 1em;
 }
@@ -73,8 +69,6 @@ footer.attribution{
     position: fixed;
     right: 0;
     bottom: 0;
-}
-footer{
     color:var(--lightcolor2);
 }
 footer a{
@@ -82,4 +76,20 @@ footer a{
 }
 footer a:hover{
     color:var(--lightcolor3);
+}
+/*
+mobile
+*/
+@media only screen and (max-width: 412px){
+    .card{
+        width: 90%;
+    }
+    p{
+        font-size: 1.2em;
+    }
+    h2{
+        font-size: 1.4em;
+        color:  var(--darktext);
+        font-weight: 700;
+    }
 }
