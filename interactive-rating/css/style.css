@@ -1,0 +1,36 @@
+/*
+variables
+*/
+
+/*
+main layout
+*/
+main{
+    color: #fff;
+}
+/*
+main card layout
+*/
+.card{
+    width: 20em;
+    height: fit-content;
+    background: hsl(213, 19%, 18%);
+}
+/*
+rating bar
+*/
+label{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
+}
+input[type="radio"]{
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    width: 0;
+}
+input[type="radio"]:checked + label{
+    background-color: blue;
+}
