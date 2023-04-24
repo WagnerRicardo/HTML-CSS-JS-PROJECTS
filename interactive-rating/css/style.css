@@ -4,20 +4,27 @@ variables
 :root {
     /*Colors*/
     --background: hsl(216, 12%, 8%);
-    --card: ;
-    --btn: ;
-    --btn2: ;
-    --txt: ;
-    --txt2: ;
+    --card: hsl(214, 23%, 14%);
+    --btn: hsl(213, 19%, 18%);
+    --btnhover: ;
+    --btnactive: ;
+    --btnsubmit: hsl(25, 97%, 53%);
+    --txt: #FFF;
+    --txt2: #A8B1BF;
 }
 /*
 general
 */
 html,body{
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 body{
     background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /*
 main layout
@@ -31,7 +38,21 @@ main card layout
 .card{
     width: 20em;
     height: fit-content;
-    background: hsl(213, 19%, 18%);
+    background: var(--card);
+    padding: 1.5em;
+    border-radius: 1.2em;
+}
+.card p{
+    color: var(--txt2);
+}
+.card-img{
+    width: 50px;
+    height: 50px;
+    background-color: var(--btn);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
 }
 /*
 rating bar
@@ -40,7 +61,11 @@ label{
     display: inline-block;
     width: 50px;
     height: 50px;
-    background-color: aqua;
+    background-color: var(--btn);
+    text-align: center;
+    line-height: 50px;
+    border-radius: 100%;
+    color: var(--txt2);
 }
 input[type="radio"]{
     appearance: none;
@@ -50,4 +75,24 @@ input[type="radio"]{
 }
 input[type="radio"]:checked + label{
     background-color: blue;
+}
+#rating-1{
+    order: 1;
+}
+
+.star-list{
+    padding: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+button[type="submit"]{
+    background-color: var(--btnsubmit);
+    text-transform: uppercase;
+    width: 100%;
+    margin: 15px 0 0 0;
+    padding: 8px;
+    border: none;
+    color: #fff;
+    border-radius: 1.2em;
+    font-weight: 700;
 }
