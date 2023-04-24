@@ -1,18 +1,4 @@
 /*
-variables
-*/
-:root {
-    /*Colors*/
-    --background: hsl(216, 12%, 8%);
-    --card: hsl(214, 23%, 14%);
-    --btn: hsl(213, 19%, 18%);
-    --btnhover: ;
-    --btnactive: ;
-    --btnsubmit: hsl(25, 97%, 53%);
-    --txt: #FFF;
-    --txt2: #A8B1BF;
-}
-/*
 general
 */
 html,body{
@@ -25,6 +11,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/*
+variables
+*/
+:root {
+    /*Colors*/
+    --background: hsl(216, 12%, 8%);
+    --card: hsl(214, 23%, 14%);
+    --btn: hsl(213, 19%, 18%);
+    --btnhover: ;
+    --btnactive: ;
+    --btnsubmit: hsl(25, 97%, 53%);
+    --txt: #FFF;
+    --txt2: #A8B1BF;
 }
 /*
 main layout
