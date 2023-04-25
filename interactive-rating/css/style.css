@@ -11,6 +11,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: outfit, Arial;
 }
 /*
 variables
@@ -20,8 +21,8 @@ variables
     --background: hsl(216, 12%, 8%);
     --card: hsl(214, 23%, 14%);
     --btn: hsl(213, 19%, 18%);
-    --btnhover: ;
-    --btnactive: ;
+    --btnhover: hsl(217, 12%, 63%);
+    --btnactive: hsl(25, 97%, 53%);
     --btnsubmit: hsl(25, 97%, 53%);
     --txt: #FFF;
     --txt2: #A8B1BF;
@@ -39,25 +40,46 @@ main card layout
     width: 20em;
     height: fit-content;
     background: var(--card);
-    padding: 1.5em;
+    padding: 1.6em;
     border-radius: 1.2em;
 }
 .card p{
     color: var(--txt2);
 }
 .card-img{
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background-color: var(--btn);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
 }
+.card-img img{
+    width: 16px;
+}
+/*
+typography
+*/
+@font-face {
+    font-family: outfit;
+    src: url('../fonts/Outfit/Outfit-VariableFont_wght.ttf');
+}
+h1{
+    font-weight: 500;
+    font-size: 30px;
+}
+p {
+    font-weight: 300;
+    font-size: 15px;
+}
 /*
 rating bar
 */
-label{
+.card form{
+    margin: 2em 0 0 0;
+}
+.card label{
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -66,15 +88,22 @@ label{
     line-height: 50px;
     border-radius: 100%;
     color: var(--txt2);
+    cursor: pointer;
 }
-input[type="radio"]{
+.card input[type="radio"]{
     appearance: none;
     margin: 0;
     padding: 0;
     width: 0;
 }
-input[type="radio"]:checked + label{
-    background-color: blue;
+.card input[type="radio"]:hover + label{
+    background-color: var(--btnhover);
+    color: #FFF;
+}
+
+.card input[type="radio"]:checked + label{
+    background-color: var(--btnactive);
+    color: #FFF;
 }
 #rating-1{
     order: 1;
@@ -85,14 +114,26 @@ input[type="radio"]:checked + label{
     display: flex;
     justify-content: space-between;
 }
-button[type="submit"]{
+.card button{
     background-color: var(--btnsubmit);
     text-transform: uppercase;
     width: 100%;
     margin: 15px 0 0 0;
-    padding: 8px;
+    padding: 15px;
     border: none;
     color: #fff;
-    border-radius: 1.2em;
+    border-radius: 2em;
     font-weight: 700;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+}
+button:active{
+    background-color: #FFF;
+    color: var(--btnsubmit);
+}
+/*
+thanks card
+*/
+.thanks-card{
+    text-align: center;
 }
