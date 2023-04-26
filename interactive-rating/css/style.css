@@ -137,3 +137,23 @@ thanks card
 .thanks-card{
     text-align: center;
 }
+.thanks-card img{
+    width: 45%;
+}
+.card-header{
+    padding: 1em 0 0.5em 0;
+}
+.info-bullet{
+    background-color: var(--btn);
+    width: fit-content;
+    height: 30px;
+    line-height: 28px;
+    margin: auto;
+    padding: 0 1em;
+    border-radius: 2em;
+    opacity: 0.9;
+}
+.info-bullet p, .info-bullet span{
+    color: var(--btnsubmit);
+    font-size: 15px;
+}

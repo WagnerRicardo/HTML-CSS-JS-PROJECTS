@@ -5,6 +5,8 @@ function onsub(event){
     location.href = 'thanks.html'
 }
 
+var star
+
 if (document.forms[0]){
     var form = document.forms['form']
     form.addEventListener("submit", onsub) 
