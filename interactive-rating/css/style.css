@@ -163,6 +163,26 @@ thanks card
     color: var(--btnsubmit);
     font-size: 15px;
 }
+/*footer*/
+footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(0, 0%, 0%);
+    padding: .25em;
+    border-radius: 1em;
+    opacity: .5;
+}
+.attribution{
+    color: var(--txt2);
+    font-size: .9em;
+}
+.attribution a{
+    color: var(--btnhover);
+}
+.attribution a:hover{
+    color: var(--txt);
+}
 /*
 mobile phones layout
 */
