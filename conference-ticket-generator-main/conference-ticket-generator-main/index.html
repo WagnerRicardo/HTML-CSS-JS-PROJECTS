@@ -19,24 +19,25 @@
     </nav>
     <div class="card">
 
-      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <h1 class="cardTitle">Your Journey to Coding Conf 2025 Starts Here!</h1>
 
-      <p>Secure your spot at next year's biggest coding conference.</p>
+      <p class="cardParagraph">Secure your spot at next year's biggest coding conference.</p>
   
       <form>
+        <!--Drag and drop-->
         <label for="image-upload" id="drag-drop">
-          Upload Avatar
-          <input type="file" accept="image/*" id="image-upload">
+          <h2>Upload Avatar</h2>
+          <input type="file" accept="image/*" id="image-upload" hidden>
           <div class="img-view">
-            <img src="./assets/images/icon-upload.svg">
+            <img class="avatarImg" src="./assets/images/icon-upload.svg">
             <p>
               Drag and drop or click to upload
             </p>
           </div>
-            <p>
+            <div class="infoParagraph">
               <img src="./assets/images/icon-info.svg">
-              Upload your photo (JPG or PNG, max size: 500KB).
-            </p>
+              <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+            </div>
         </label>
 
 

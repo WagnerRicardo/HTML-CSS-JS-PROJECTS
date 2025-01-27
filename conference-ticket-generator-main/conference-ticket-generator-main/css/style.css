@@ -15,6 +15,23 @@ body{
     background-color: rgb(63, 0, 165);
 }
 
+h1{
+    font-size: 3em;
+    text-align: center;
+}
+p{
+    font-size: 1.2em;
+}
+
+.cardParagraph{
+    text-align: center;
+}
+
+form{
+    max-width: 520px;
+    margin: 2em auto;
+}
+
 .logo{
     margin: 1em;
 }
@@ -24,7 +41,30 @@ body{
 }
 
 .card{
-    max-width: 500px;
+    max-width: 620px;
+}
+
+.img-view{
+    padding: 1em;
+    text-align: center;
+    background-color: rgba(0, 81, 255, 0.377);
+}
+
+.infoParagraph{
+    display: flex;
+}
+
+.infoParagraph p{
+    font-size: 1em;
+}
+
+.infoParagraph img{
+    vertical-align: middle;
+}
+
+.avatarImg{
+    margin: 2em;
+    width: 3.5em;
 }
 
 .attribution {
