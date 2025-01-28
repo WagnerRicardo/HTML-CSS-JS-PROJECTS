@@ -32,6 +32,26 @@ form{
     margin: 2em auto;
 }
 
+label{
+    margin-top: 1em;
+    display: block;
+    font-size: 1.5em;
+}
+
+form button{
+    background-color: orange;
+    color: white;
+}
+
+.customInput{
+    font-size: 1.5em;
+    width: 100%;
+    padding: .5em 0;
+    margin-bottom: 1em;
+    border-radius: 11px;
+    display: block;
+}
+
 .logo{
     margin: 1em;
 }
@@ -45,9 +65,14 @@ form{
 }
 
 .img-view{
-    padding: 1em;
+    padding: 15px;
     text-align: center;
     background-color: rgba(0, 81, 255, 0.377);
+    border-radius: 11px;
+}
+
+.img-view p{
+    font-size: 1em;
 }
 
 .infoParagraph{
@@ -55,7 +80,7 @@ form{
 }
 
 .infoParagraph p{
-    font-size: 1em;
+    font-size: .6em;
 }
 
 .infoParagraph img{
@@ -63,8 +88,10 @@ form{
 }
 
 .avatarImg{
-    margin: 2em;
-    width: 3.5em;
+    margin: 15px;
+    width: 3em;
+    background-color: rgba(255, 255, 255, 0.171);
+    border-radius: 11px;
 }
 
 .attribution {

@@ -26,30 +26,31 @@
       <form>
         <!--Drag and drop-->
         <label for="image-upload" id="drag-drop">
-          <h2>Upload Avatar</h2>
-          <input type="file" accept="image/*" id="image-upload" hidden>
+          Upload Avatar
           <div class="img-view">
             <img class="avatarImg" src="./assets/images/icon-upload.svg">
             <p>
               Drag and drop or click to upload
             </p>
           </div>
-            <div class="infoParagraph">
+          <div class="infoParagraph">
               <img src="./assets/images/icon-info.svg">
               <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
-            </div>
+          </div>
         </label>
+        <input type="file" accept="image/*" id="image-upload" hidden>
 
 
-        Full Name
+        <label for="fName">Full Name</label>
+        <input class="customInput" type="text">
+        
+        <label for="fName">Email Address</label>
+        <input class="customInput" type="email" placeholder="example@email.com">
+
+        <label for="fName">GitHub Username</label>
+        <input class="customInput" type="text" placeholder="@yourusername">
     
-        Email Address
-        example@email.com
-    
-        GitHub Username
-        @yourusername
-    
-        Generate My Ticket
+        <button class="customInput">Generate My Ticket</button>
       </form>
 
     </div>
@@ -57,21 +58,21 @@
     <!-- Form ends -->
 
     <!-- Generated tickets starts -->
-    <footer class="card deactivated">
+    <div class="card deactivated">
       Congrats, <!-- Full Name -->! Your ticket is ready.
 
       We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
   
       Coding Conf
       Jan 31, 2025 / Austin, TX
-    </footer>
+    </div>
 
 
     <!-- Generated tickets ends -->
     
-    <div class="attribution">
+    <footer class="attribution">
       Challenge by <a href="https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w">Frontend Mentor</a>. 
       Coded by <a href="https://www.frontendmentor.io/profile/WagnerRicardo">Wagner</a>.
-    </div>
+    </footer>
   </body>
 </html>
