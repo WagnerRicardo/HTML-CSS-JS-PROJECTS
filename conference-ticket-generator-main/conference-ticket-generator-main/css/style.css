@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    border: 1px solid red;
 }
 body{
     color: white;
@@ -16,20 +15,21 @@ body{
 }
 
 h1{
-    font-size: 3em;
+    font-size: 4.5em;
     text-align: center;
 }
 p{
-    font-size: 1.2em;
+    font-size: 2em;
 }
 
 .cardParagraph{
+    margin: .5em;
     text-align: center;
 }
 
 form{
-    max-width: 520px;
-    margin: 2em auto;
+    max-width: 550px;
+    margin: 4em auto;
 }
 
 label{
@@ -38,22 +38,27 @@ label{
     font-size: 1.5em;
 }
 
-form button{
-    background-color: orange;
-    color: white;
+form button.customBtn{
+    border: none;
+    background-color: #f67464;
+    color: #020116;
 }
 
 .customInput{
+    box-sizing: border-box;
+    color: #fff;
+    background-color: hsla(0, 0%, 100%, 0.11);
     font-size: 1.5em;
     width: 100%;
-    padding: .5em 0;
+    padding: .9em;
     margin-bottom: 1em;
+    border: 1px solid #fff;
     border-radius: 11px;
     display: block;
 }
 
 .logo{
-    margin: 1em;
+    margin: 2em;
 }
 
 .deactivated{
@@ -61,13 +66,14 @@ form button{
 }
 
 .card{
-    max-width: 620px;
+    margin: 3.5em auto;
+    max-width: 920px;
 }
 
 .img-view{
     padding: 15px;
     text-align: center;
-    background-color: rgba(0, 81, 255, 0.377);
+    background-color: hsla(0, 0%, 100%, 0.11);
     border-radius: 11px;
 }
 
@@ -76,6 +82,7 @@ form button{
 }
 
 .infoParagraph{
+    margin: 11px 0;
     display: flex;
 }
 
@@ -90,7 +97,7 @@ form button{
 .avatarImg{
     margin: 15px;
     width: 3em;
-    background-color: rgba(255, 255, 255, 0.171);
+    background-color: hsla(0, 0%, 100%, 0.17);
     border-radius: 11px;
 }
 
