@@ -25,6 +25,7 @@
   
       <form>
         <!--Drag and drop-->
+        <input type="file" accept="image/*" id="image-upload" class="visuallyHidden">
         <label for="image-upload" id="drag-drop">
           Upload Avatar
           <div class="img-view">
@@ -34,21 +35,20 @@
             </p>
           </div>
           <div class="infoParagraph">
-              <img src="./assets/images/icon-info.svg">
+              <img class="iconInfo" src="./assets/images/icon-info.svg">
               <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
           </div>
         </label>
-        <input type="file" accept="image/*" id="image-upload" hidden>
 
 
-        <label for="fName">Full Name</label>
-        <input class="customInput" type="text">
+        <label for="Name">Full Name</label>
+        <input id="Name" class="customInput" type="text">
         
-        <label for="fName">Email Address</label>
-        <input class="customInput" type="email" placeholder="example@email.com">
+        <label for="email">Email Address</label>
+        <input id="email" class="customInput" type="email" placeholder="example@email.com">
 
-        <label for="fName">GitHub Username</label>
-        <input class="customInput" type="text" placeholder="@yourusername">
+        <label for="githubUser">GitHub Username</label>
+        <input id="githubUser" class="customInput" type="text" placeholder="@yourusername">
     
         <button class="customInput customBtn">Generate My Ticket</button>
       </form>

@@ -1,7 +1,34 @@
+/* FONTS */
+@font-face {
+    font-family: inconsolatabold;
+    src: url("../assets/fonts/static/Inconsolata-Bold.ttf");
+}
+
+@font-face {
+font-family: inconsolataExbold;
+src: url("../assets/fonts/static/Inconsolata-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: inconsolataMed;
+    src: url("../assets/fonts/static/Inconsolata-Medium.ttf");
+}
+
+@font-face {
+    font-family: inconsolataReg;
+    src: url("../assets/fonts/static/Inconsolata-Regular.ttf");
+}
+
+@font-face {
+    font-family: inconsolata;
+    src: url("../assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf");
+}
+
 *{
     margin: 0;
     padding: 0;
 }
+
 body{
     color: white;
     height: 100vh;
@@ -15,11 +42,23 @@ body{
 }
 
 h1{
-    font-size: 4.5em;
+    font-family: inconsolatabold, Arial, Helvetica, sans-serif;
+    font-size: 4.3em;
     text-align: center;
+    margin: .5em 0;
 }
 p{
-    font-size: 2em;
+    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
+    font-size: 1.8em;
+}
+
+nav{
+    margin: 1em;
+}
+
+.card{
+    margin: 1em auto;
+    max-width: 970px;
 }
 
 .cardParagraph{
@@ -28,66 +67,93 @@ p{
 }
 
 form{
-    max-width: 550px;
+    max-width: 600px;
     margin: 4em auto;
 }
 
 label{
-    margin-top: 1em;
+    box-sizing: border-box;
+    margin-top: 1.5em;
     display: block;
-    font-size: 1.5em;
+    font-family: inconsolataMed, Arial, Helvetica, sans-serif;
+    font-size: 1.7em;
 }
 
 form button.customBtn{
+    font-family: inconsolatabold, Arial, Helvetica, sans-serif;
+    margin: 1.6em 0;
     border: none;
     background-color: #f67464;
     color: #020116;
 }
 
 .customInput{
+    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
     box-sizing: border-box;
     color: #fff;
-    background-color: hsla(0, 0%, 100%, 0.11);
-    font-size: 1.5em;
+    background-color: hsla(0, 0%, 100%, 0.1);
     width: 100%;
     padding: .9em;
+    margin: .7em 0;
     margin-bottom: 1em;
     border: 1px solid #fff;
-    border-radius: 11px;
+    border-radius: 15px;
     display: block;
-}
-
-.logo{
-    margin: 2em;
 }
 
 .deactivated{
     display: none;
 }
 
-.card{
-    margin: 3.5em auto;
-    max-width: 920px;
+.visuallyHidden { 
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+[type="file"]:focus + label .img-view{
+    border: 1px solid white;
 }
 
 .img-view{
+    box-sizing: border-box;
+    margin-top: 1em;
+    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
     padding: 15px;
     text-align: center;
-    background-color: hsla(0, 0%, 100%, 0.11);
-    border-radius: 11px;
+    background-color: hsla(0, 0%, 100%, 0.1);
+    border-image-source:url("../assets/images/border.png");  
+    border-image-repeat: round;
+    border-image-slice: 33%;
+    border-image-width: 16px;
+    border-image-outset: 0px;
+    border-radius: 15px;
 }
 
 .img-view p{
-    font-size: 1em;
+    padding: .5em;
+    box-sizing: border-box;
+    font-size: .8em;
 }
 
 .infoParagraph{
-    margin: 11px 0;
+    line-height: .9em;
+    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
+    margin: 15px 0;
     display: flex;
 }
 
+.iconInfo{
+    margin: 0 11px 0 0;
+    width: .8em;
+}
+
 .infoParagraph p{
-    font-size: .6em;
+    font-size: 15px;
 }
 
 .infoParagraph img{
@@ -96,15 +162,18 @@ form button.customBtn{
 
 .avatarImg{
     margin: 15px;
-    width: 3em;
-    background-color: hsla(0, 0%, 100%, 0.17);
-    border-radius: 11px;
+    width: 64px;
+    background-color: hsla(0, 0%, 100%, 0.15);
+    border: 1px solid;
+    border-color: hsla(0, 0%, 100%, 0.16);
+    border-radius: 15px;
 }
 
 .attribution {
+    font-family: inconsolata, Arial, Helvetica, sans-serif;
     text-align: center; 
     margin-top: auto;
-    font-size: 11px; text-align: center; 
+    font-size: 1em; text-align: center; 
 }
 .attribution a { 
     color: hsl(228, 45%, 44%); 
