@@ -29,31 +29,66 @@ src: url("../assets/fonts/static/Inconsolata-ExtraBold.ttf");
     padding: 0;
 }
 
+html{
+    margin: 0px;
+    min-height: 100vh;
+    width: 100%;
+}
+
 body{
-    color: white;
-    height: 100vh;
     min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    color: white;
     background: url("../assets/images/background-desktop.png") no-repeat center center fixed;
     background-size: cover;
     background-color: rgb(63, 0, 165);
 }
 
+.logo{
+    margin:2em;
+}
+
+.linesPattern{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/images/pattern-lines.svg") repeat center center fixed;
+    background-size: cover;
+}
+
+.squigglyTop{
+    margin-top: 5em;
+    z-index: -1;
+    position: fixed;
+    right: 0;
+}
+
+.squigglyBottom{
+    width: 1130px;
+    z-index: -1;
+    position:fixed;
+    bottom: 0;
+    left: -2em;
+}
+
+.circle{
+    height: 240px;
+    z-index: -1;
+    position:fixed;
+    right: 20%;
+    bottom: 20%;
+}
+
 h1{
     font-family: inconsolatabold, Arial, Helvetica, sans-serif;
-    font-size: 4.3em;
+    font-size: 4em;
     text-align: center;
     margin: .5em 0;
 }
 p{
     font-family: inconsolataReg, Arial, Helvetica, sans-serif;
-    font-size: 1.8em;
-}
-
-nav{
-    margin: 1em;
+    font-size: 1.7em;
 }
 
 .card{
@@ -73,15 +108,15 @@ form{
 
 label{
     box-sizing: border-box;
-    margin-top: 1.5em;
+    margin-top: 1.2em;
     display: block;
     font-family: inconsolataMed, Arial, Helvetica, sans-serif;
-    font-size: 1.7em;
+    font-size: 1.5em;
 }
 
 form button.customBtn{
     font-family: inconsolatabold, Arial, Helvetica, sans-serif;
-    margin: 1.6em 0;
+    margin: 1.5em 0;
     border: none;
     background-color: #f67464;
     color: #020116;
@@ -102,6 +137,11 @@ form button.customBtn{
     display: block;
 }
 
+.customInput:focus{
+    outline: 1px solid #fff;
+    outline-offset: 3px;
+}
+
 .deactivated{
     display: none;
 }
@@ -116,7 +156,8 @@ form button.customBtn{
 }
 
 [type="file"]:focus + label .img-view{
-    border: 1px solid white;
+    outline: 1px solid #fff;
+    outline-offset: 3px;
 }
 
 .img-view{
@@ -137,7 +178,7 @@ form button.customBtn{
 .img-view p{
     padding: .5em;
     box-sizing: border-box;
-    font-size: .8em;
+    font-size: .9em;
 }
 
 .infoParagraph{
@@ -162,18 +203,34 @@ form button.customBtn{
 
 .avatarImg{
     margin: 15px;
-    width: 64px;
+    width: 60px;
     background-color: hsla(0, 0%, 100%, 0.15);
     border: 1px solid;
     border-color: hsla(0, 0%, 100%, 0.16);
     border-radius: 15px;
 }
 
+.container > p{
+    margin: auto;
+    width: 65%;
+}
+
+#fullNameDisplay{
+    background-image: linear-gradient(to right, #f3796a, #fff);
+    color: transparent;
+    background-clip: text;
+}
+
+#fullEmailDisplay{
+    color: #f3796a;
+}
+
 .attribution {
+    position:absolute;
     font-family: inconsolata, Arial, Helvetica, sans-serif;
     text-align: center; 
-    margin-top: auto;
     font-size: 1em; text-align: center; 
+    bottom: 0;
 }
 .attribution a { 
     color: hsl(228, 45%, 44%); 
