@@ -18,67 +18,55 @@
     <div class="linesPattern">
     <!-- Form starts -->
       <nav>
-        <img class="logo" src="assets/images/logo-full.svg">
+        <a href="index.html"><img alt="Coding Conference Home" class="logo" src="assets/images/logo-full.svg"></a>
       </nav>
-      <div class="card deactivated">
+      <section class="card">
 
         <h1 class="cardTitle">Your Journey to Coding Conf 2025 Starts Here!</h1>
 
         <p class="cardParagraph">Secure your spot at next year's biggest coding conference.</p>
     
-        <form>
+        <form id="mainForm" action="ticket.html" onsubmit="formSubmit()" method="get">
           <!--Drag and drop-->
-          <input tabindex="0" type="file" accept="image/*" id="image-upload" class="visuallyHidden">
-          <label for="image-upload" id="drag-drop">
+          <input name="avatarImg" tabindex="0" type="file" id="imageUpload" class="visuallyHidden">
+          <label for="imageUpload" id="drag-drop">
             Upload Avatar
             <div class="img-view">
-              <img class="avatarImg" src="./assets/images/icon-upload.svg">
+              <img id="formAvatarImg" class="avatarImg" src="./assets/images/icon-upload.svg">
               <p>
                 Drag and drop or click to upload
               </p>
             </div>
             <div class="infoParagraph">
                 <img class="iconInfo" src="./assets/images/icon-info.svg">
-                <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+                <p class="uploadImgInfo">Upload your photo (JPG or PNG, max size: 500KB).</p>
             </div>
           </label>
 
           <label for="Name">Full Name</label>
-          <input id="Name" class="customInput" type="text">
+          <input name="name" id="Name" class="customInput" type="text">
           
           <label for="email">Email Address</label>
-          <input id="email" class="customInput" type="email" placeholder="example@email.com">
+          <input name="email" id="email" class="customInput" type="email" placeholder="example@email.com">
 
           <label for="githubUser">GitHub Username</label>
-          <input id="githubUser" class="customInput" type="text" placeholder="@yourusername">
+          <input name="githubUser" id="githubUser" class="customInput" type="text" placeholder="@yourusername">
       
-          <button class="customInput customBtn">Generate My Ticket</button>
+          <button aria-label="Generate My Ticket" class="customInput customBtn">Generate My Ticket</button>
         </form>
 
-      </div>
+      </section>
 
       <!-- Form ends -->
-
-      <!-- Generated tickets starts -->
-      <div class="card">
-        <h1 class="cardTitle">Congrats, <span id="fullNameDisplay">Full Name</span>! Your ticket is ready.</h1>
-
-        <div class="container">
-          <p class="cardParagraph">We've emailed your ticket to <span id="fullEmailDisplay">Email Address</span> and will send updates in the run up to the event.</p>
-        </div>
-        
-    
-        Coding Conf
-        Jan 31, 2025 / Austin, TX
-      </div>
-
-
-      <!-- Generated tickets ends -->
       
       <footer class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w">Frontend Mentor</a>. 
-        Coded by <a href="https://www.frontendmentor.io/profile/WagnerRicardo">Wagner</a>.
+        <span>Challenge by <a href="https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w">Frontend Mentor</a>.
+        Coded by <a href="https://www.frontendmentor.io/profile/WagnerRicardo">Wagner</a>.</span>
       </footer>
     </div>
+
+    <script src="index.js" type="text/javascript">
+    </script>
+
   </body>
 </html>

@@ -31,12 +31,12 @@ src: url("../assets/fonts/static/Inconsolata-ExtraBold.ttf");
 
 html{
     margin: 0px;
-    min-height: 100vh;
-    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 body{
-    min-height: 100%;
+    min-height: 100vh;
     color: white;
     background: url("../assets/images/background-desktop.png") no-repeat center center fixed;
     background-size: cover;
@@ -52,7 +52,7 @@ body{
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background: url("../assets/images/pattern-lines.svg") repeat center center fixed;
     background-size: cover;
 }
@@ -87,8 +87,14 @@ h1{
     margin: .5em 0;
 }
 p{
+    color: hsla(0, 0%, 100%, 0.7);
     font-family: inconsolataReg, Arial, Helvetica, sans-serif;
     font-size: 1.7em;
+}
+
+a{
+    text-decoration: none;
+    display: flex;
 }
 
 .card{
@@ -146,9 +152,9 @@ form button.customBtn{
     display: none;
 }
 
-.visuallyHidden { 
+.visuallyHidden {
     position: absolute !important;
-    height: 1px; 
+    height: 1px;
     width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
@@ -209,10 +215,97 @@ form button.customBtn{
     border-color: hsla(0, 0%, 100%, 0.16);
     border-radius: 15px;
 }
+.container{
+    margin: auto;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+}
 
 .container > p{
-    margin: auto;
-    width: 65%;
+    padding: 0 1.5em;
+}
+
+.ticket{
+    display: grid;
+    grid-template-columns:4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 600px;
+    height: 280px;
+    background-image: url("../assets/images/pattern-ticket.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-self: center;
+    margin: 5em 0;
+    box-sizing: border-box;
+}
+
+.ticketHeader{
+    margin: 1.5em;
+}
+
+
+.ticketHeader img{
+    width: 300px;
+}
+
+.ticketHeader p{
+    font-size: 1.2em;
+    margin-left: 3.6em;
+}
+
+.ticketBody{
+    margin: 1.5em;
+    grid-row: 2;
+    display: flex;
+}
+
+.ticketBody p{
+    color: #ffffff;
+}
+
+.personInfo{
+    margin-left: 1.5em;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+p.fullNameDisplay{
+    margin-bottom: .5em;
+}
+
+.githubProfile{
+    display: flex;
+    line-height: 1.2em;
+    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+}
+
+.githubProfile img{
+    margin-right: .5em;
+}
+
+.githubProfile p{
+    font-size: 1em;
+}
+
+.ticketAvatar{
+    margin: 0;
+    width: 80px;
+    border: none;
+}
+
+.ticketNumber{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsla(0, 0%, 100%, 0.5);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
 }
 
 #fullNameDisplay{
@@ -221,17 +314,20 @@ form button.customBtn{
     background-clip: text;
 }
 
+
 #fullEmailDisplay{
     color: #f3796a;
 }
 
 .attribution {
-    position:absolute;
+    width: fit-content;
+    margin-top: auto;
     font-family: inconsolata, Arial, Helvetica, sans-serif;
-    text-align: center; 
-    font-size: 1em; text-align: center; 
+    text-align: center;
+    font-size: 1em;
     bottom: 0;
 }
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
+.attribution a {
+    display:inline;
+    color: hsl(228, 45%, 44%);
 }

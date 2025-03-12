@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    
+    <title>Frontend Mentor | Conference ticket generator</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  </head>
+  <body>
+    <img class="squigglyTop" src="./assets/images/pattern-squiggly-line-top.svg">
+    <img class="squigglyBottom" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg">
+    <img class="circle" src="./assets/images/pattern-circle.svg">
+    <div class="linesPattern">
+    <!-- Form starts -->
+      <nav>
+        <a href="index.html"><img alt="Coding Conference Home" class="logo" src="assets/images/logo-full.svg"></a>
+      </nav>
+      <!-- Generated tickets starts -->
+      <section class="card">
+        <h1 class="cardTitle">Congrats, <span class="fullNameDisplay">Full Namesssss</span>! Your ticket is ready.</h1>
+
+        <div class="container">
+          <p class="cardParagraph">We've emailed your ticket to <span id="fullEmailDisplay">Email@Address.com</span> and will send updates in the run up to the event.</p>
+
+          <div class="ticket">
+
+            <div class="ticketHeader">
+              <img src="assets/images/logo-full.svg">
+              <p>Jan 31, 2025 / Austin, TX</p>
+            </div>
+
+            <div class="ticketBody">
+              <img id="ticketAvatarImg" class="avatarImg ticketAvatar" src="assets/images/image-avatar.jpg">
+              <div class="personInfo">
+                <p class="fullNameDisplay">name name name</p>
+
+                <span class="githubProfile">
+                  <a href="#">
+                    <img src="assets/images/icon-github.svg">
+                    <p>@gitbhubuseratg</p>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+
+            <div class="ticketNumber"><p>#64829</p></div>
+
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- Generated tickets ends -->
+      
+      <footer class="attribution">
+        <span>Challenge by <a href="https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w">Frontend Mentor</a>.
+        Coded by <a href="https://www.frontendmentor.io/profile/WagnerRicardo">Wagner</a>.</span>
+      </footer>
+    </div>
+
+    <script src="ticket.js" type="text/javascript">
+    </script>
+
+  </body>
+</html>
