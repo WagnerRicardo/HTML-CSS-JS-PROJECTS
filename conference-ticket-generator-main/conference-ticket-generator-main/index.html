@@ -26,9 +26,9 @@
 
         <p class="cardParagraph">Secure your spot at next year's biggest coding conference.</p>
     
-        <form id="mainForm" action="ticket.html" onsubmit="formSubmit()" method="get">
+        <form id="mainForm" action="ticket.html" method="get" novalidate>
           <!--Drag and drop-->
-          <input name="avatarImg" tabindex="0" type="file" id="imageUpload" class="visuallyHidden">
+          <input name="avatarImg" tabindex="0" type="file" id="imageUpload" class="visuallyHidden" accept="image/png, image/gif, image/jpeg">
           <label for="imageUpload" id="drag-drop">
             Upload Avatar
             <div class="img-view">
@@ -44,14 +44,17 @@
           </label>
 
           <label for="Name">Full Name</label>
-          <input name="name" id="Name" class="customInput" type="text">
-          
+          <input name="name" id="name" class="customInput" type="text" required>
+          <p class="errorP"></p>
+
           <label for="email">Email Address</label>
-          <input name="email" id="email" class="customInput" type="email" placeholder="example@email.com">
+          <input name="email" id="email" class="customInput" type="email" placeholder="example@email.com" required>
+          <p class="errorP"></p>
 
           <label for="githubUser">GitHub Username</label>
-          <input name="githubUser" id="githubUser" class="customInput" type="text" placeholder="@yourusername">
-      
+          <input name="githubUser" id="githubUser" class="customInput" type="text" placeholder="@yourusername" required>
+          <p class="errorP"></p>
+
           <button aria-label="Generate My Ticket" class="customInput customBtn">Generate My Ticket</button>
         </form>
 
