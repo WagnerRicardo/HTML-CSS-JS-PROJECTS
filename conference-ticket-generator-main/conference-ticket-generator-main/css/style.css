@@ -30,29 +30,32 @@ src: url("../assets/fonts/static/Inconsolata-ExtraBold.ttf");
 }
 
 html{
-    margin: 0px;
     height: 100vh;
-    box-sizing: border-box;
 }
 
 body{
-    min-height: 100vh;
+    min-height: 100%;
     color: white;
-    background: url("../assets/images/background-desktop.png") no-repeat center center fixed;
+    background: url("../assets/images/background-desktop.png") no-repeat center fixed;
     background-size: cover;
-    background-color: rgb(63, 0, 165);
+    /*background-color: rgb(63, 0, 165);*/
+}
+
+nav{
+    max-width: 100vw;
 }
 
 .logo{
-    margin:2em;
+    margin:2em auto;
 }
 
 .linesPattern{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100%;
     width: 100%;
-    min-height: 100vh;
     background: url("../assets/images/pattern-lines.svg") repeat center center fixed;
     background-size: cover;
 }
@@ -66,8 +69,9 @@ body{
 
 .squigglyBottom{
     width: 1130px;
+    max-width: 100%;
     z-index: -1;
-    position:fixed;
+    position: fixed;
     bottom: 0;
     left: -2em;
 }
@@ -75,7 +79,7 @@ body{
 .circle{
     height: 240px;
     z-index: -1;
-    position:fixed;
+    position: fixed;
     right: 20%;
     bottom: 20%;
 }
@@ -98,7 +102,8 @@ a{
 }
 
 .card{
-    margin: 1em auto;
+    margin: 0 auto;
+    padding: 20px;
     max-width: 970px;
 }
 
@@ -128,6 +133,11 @@ form button.customBtn{
     color: #020116;
 }
 
+form button.customBtn:hover{
+    cursor: pointer;
+    background-color: #da6758;
+}
+
 .customInput{
     font-family: inconsolataReg, Arial, Helvetica, sans-serif;
     font-size: 1.5em;
@@ -148,7 +158,12 @@ form button.customBtn{
     outline-offset: 3px;
 }
 
-.deactivated{
+.customInput:hover{
+    cursor:text;
+    background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+div.deactivated{
     display: none;
 }
 
@@ -181,6 +196,11 @@ form button.customBtn{
     border-radius: 15px;
 }
 
+.img-view:hover{
+    cursor: pointer;
+    background-color: hsla(0, 0%, 100%, 0.3);
+}
+
 .img-view p{
     padding: .5em;
     box-sizing: border-box;
@@ -188,15 +208,26 @@ form button.customBtn{
 }
 
 .infoParagraph{
-    line-height: .9em;
+    line-height: 1em;
     font-family: inconsolataReg, Arial, Helvetica, sans-serif;
     margin: 15px 0;
     display: flex;
 }
 
+.errorP p{
+    box-sizing: border-box;
+    line-height: 1.5em;
+    color: #ff6347;
+}
+
+.errorP img{
+    width: 1.4em;
+}
+
+
 .iconInfo{
     margin: 0 11px 0 0;
-    width: .8em;
+    width: 1em;
 }
 
 .infoParagraph p{
@@ -276,6 +307,12 @@ p.fullNameDisplay{
     margin-bottom: .5em;
 }
 
+span.fullNameDisplay{
+    background-image: linear-gradient(to right, #f3796a, #f59285, #fff);
+    color: transparent;
+    background-clip: text;
+}
+
 .githubProfile{
     display: flex;
     line-height: 1.2em;
@@ -303,7 +340,7 @@ p.fullNameDisplay{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: hsla(0, 0%, 100%, 0.5);
+    color: hsla(0, 0%, 7%, 0.7);
     writing-mode: vertical-rl;
     text-orientation: mixed;
 }
@@ -320,7 +357,7 @@ p.fullNameDisplay{
 }
 
 .attribution {
-    width: fit-content;
+
     margin-top: auto;
     font-family: inconsolata, Arial, Helvetica, sans-serif;
     text-align: center;
@@ -330,4 +367,90 @@ p.fullNameDisplay{
 .attribution a {
     display:inline;
     color: hsl(228, 45%, 44%);
+}
+
+/*Mobile*/
+
+@media screen and (max-width: 799px){
+    .squigglyBottom{
+        max-width: 80%;
+        left:0;
+    }
+
+    form{
+        margin-bottom: 10em;
+        box-sizing: border-box;
+    }
+
+    h1{
+        max-width: 100%;
+        font-size: 2.5em;
+    }
+
+    .cardParagraph{
+        font-size: 1.4em;
+    }
+
+    .logo{
+        width: 16em;
+    }
+    
+    .card{
+        max-width: 100%;
+        padding: 1em;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .ticket{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 584 / 275;
+    }
+
+    .ticketHeader{
+        padding: 1em 0 0 1em;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .ticketBody{
+        padding: 0 0 1em 1em;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .ticketNumber{
+        margin: 0;
+    }
+
+    .ticketHeader p{
+        font-size: 1em;
+    }
+
+    .ticketHeader img{
+        width: 75%;
+    }
+
+    .avatarImg{
+        width: 22%;
+        height: 85%;
+        aspect-ratio: 1 / 1;
+    }
+
+    .personInfo {
+        justify-content: center;
+    }
+
+
+}
+
+@media screen and (max-width: 425px){
+    .card{
+        margin: 0 0;
+        padding: 0;
+    }
 }

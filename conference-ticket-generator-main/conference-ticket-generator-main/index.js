@@ -1,12 +1,14 @@
 //ticket class
 
 class ticketInfo{
-    constructor(avatar, fullName, email, githubUser){
+    constructor(avatar, fullName, email, githubUser, ticketID, currentDate){
 
         this.avatar = avatar;
         this.fullName = fullName;
         this.email = email;
         this.githubUser = githubUser;
+        this.ticketID = ticketID;
+        this.currentDate = currentDate;
 
     }
 }
@@ -65,12 +67,14 @@ dragDrop.addEventListener('drop', function(e) {
     uploadImgFile(imgFile);
 })
 
-//form logic
+//Clear storage
 
 document.addEventListener('DOMContentLoaded', () =>
     {
         sessionStorage.clear();
     })
+
+//form submit logic
 
 function validateEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -80,49 +84,73 @@ function validategGithub(username) {
     return /^@[^\s]+$/.test(username);
 }
 
+function ticketIDNumberGenerator(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+//actual submit
+
 mainForm.addEventListener('submit', e => {
 
     e.preventDefault();
+
+    //html objects
 
     const fNameHtmlObj = document.querySelector('#name');
     const emailHtmlObj = document.querySelector('#email');
     const githubUserHtmlObj = document.querySelector('#githubUser');
 
     let errorP = document.querySelectorAll('.errorP');
-
-    errorP.forEach(e => {
-        e.textContent = '';
-    });
+    let errorParagraphs = document.querySelectorAll('.errorP p');
 
     let fName = fNameHtmlObj.value;
     let email = emailHtmlObj.value;
     let githubUser = githubUserHtmlObj.value;
 
+    //input validation
+
     if(!avatarImgURL){
         iconInfo.src = './assets/images/icon-info2.svg'
         uploadImgInfo.style.color = '#ff6347';
         uploadImgInfo.textContent = 'Please select an image for your avatar.';
+        uploadImgInfo.focus();
         return;
     }
     if(!fName){
-        errorP[0].textContent = 'Favor preencha seu nome'
+        errorP[0].classList.remove('deactivated');
+        errorParagraphs[0].focus();
         return;
     }
+    errorP[0].classList.add('deactivated');
 
     if(validateEmail(email) == false || !email){
-        errorP[1].textContent = 'Favor preencha seu email'
+        errorP[1].classList.remove('deactivated');
+        errorParagraphs[1].focus();
         return;
     }
+    errorP[1].classList.add('deactivated');
 
     if(validategGithub(githubUser) == false|| !githubUser){
-        errorP[2].textContent = 'Favor preencha seu Github'
+        errorP[2].classList.remove('deactivated');
+        errorParagraphs[2].focus();
         return;
     }
-    
-    let ticket = new ticketInfo(avatarImgURL, fName, email, githubUser);
+    errorP[2].classList.add('deactivated');
 
-    console.log(ticket)
+    //transfer to another page
+
+    const ticketIDnumber = Math.round(ticketIDNumberGenerator(1, 99999));
+
+    const todayDate = new Date();
+    
+    let ticket = new ticketInfo(avatarImgURL, fName, email, githubUser, ticketIDnumber, todayDate);
+
+    sessionStorage.setItem("ticketData", JSON.stringify(ticket));
 
     sessionStorage.setItem('accesValidation', true);
+
+    console.log(sessionStorage.getItem('ticketData'));
+
+    window.location.href = "ticket.html";
 
 })

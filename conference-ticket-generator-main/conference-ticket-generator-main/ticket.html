@@ -12,9 +12,13 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
   </head>
   <body>
-    <img class="squigglyTop" src="./assets/images/pattern-squiggly-line-top.svg">
-    <img class="squigglyBottom" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg">
-    <img class="circle" src="./assets/images/pattern-circle.svg">
+    <img class="squigglyTop" src="./assets/images/pattern-squiggly-line-top.svg" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 900px)" srcset="./assets/images/pattern-squiggly-line-bottom-desktop.svg">
+      <source media="(min-width: 480px)" srcset="./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg">
+      <img class="squigglyBottom" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg" aria-hidden="true">
+    </picture>
+    <img class="circle" src="./assets/images/pattern-circle.svg" aria-hidden="true">
     <div class="linesPattern">
     <!-- Form starts -->
       <nav>
@@ -22,7 +26,7 @@
       </nav>
       <!-- Generated tickets starts -->
       <section class="card">
-        <h1 class="cardTitle">Congrats, <span class="fullNameDisplay">Full Namesssss</span>! Your ticket is ready.</h1>
+        <h1 class="cardTitle">Congrats, <span class="fullNameDisplay"></span>! Your ticket is ready.</h1>
 
         <div class="container">
           <p class="cardParagraph">We've emailed your ticket to <span id="fullEmailDisplay">Email@Address.com</span> and will send updates in the run up to the event.</p>
@@ -30,18 +34,18 @@
           <div class="ticket">
 
             <div class="ticketHeader">
-              <img src="assets/images/logo-full.svg">
-              <p>Jan 31, 2025 / Austin, TX</p>
+              <img src="assets/images/logo-full.svg" alt="Coding Conf logo">
+              <p><span class="todaysDate">31, 2025</span>  /  <span class="currentLocation">Austin, TX</span></p>
             </div>
 
             <div class="ticketBody">
               <img id="ticketAvatarImg" class="avatarImg ticketAvatar" src="assets/images/image-avatar.jpg">
               <div class="personInfo">
-                <p class="fullNameDisplay">name name name</p>
+                <p class="fullNameDisplay"></p>
 
                 <span class="githubProfile">
                   <a href="#">
-                    <img src="assets/images/icon-github.svg">
+                    <img src="assets/images/icon-github.svg" alt="Your avatar picture.">
                     <p>@gitbhubuseratg</p>
                   </a>
                 </span>

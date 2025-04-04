@@ -8,13 +8,16 @@
     
     <title>Frontend Mentor | Conference ticket generator</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
   </head>
   <body>
-    <img class="squigglyTop" src="./assets/images/pattern-squiggly-line-top.svg">
-    <img class="squigglyBottom" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg">
-    <img class="circle" src="./assets/images/pattern-circle.svg">
+    <img class="squigglyTop" src="./assets/images/pattern-squiggly-line-top.svg" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 900px)" srcset="./assets/images/pattern-squiggly-line-bottom-desktop.svg">
+      <source media="(min-width: 412px)" srcset="./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg">
+      <img class="squigglyBottom" aria-hidden="true">
+    </picture>
+    <img class="circle" src="./assets/images/pattern-circle.svg" aria-hidden="true">
     <div class="linesPattern">
     <!-- Form starts -->
       <nav>
@@ -28,32 +31,41 @@
     
         <form id="mainForm" action="ticket.html" method="get" novalidate>
           <!--Drag and drop-->
-          <input name="avatarImg" tabindex="0" type="file" id="imageUpload" class="visuallyHidden" accept="image/png, image/gif, image/jpeg">
-          <label for="imageUpload" id="drag-drop">
+          <input ame="avatarImg" type="file" id="imageUpload" class="visuallyHidden" accept="image/png, image/gif, image/jpeg" aria-hidden="true">
+          <label tabindex="0" for="imageUpload" id="drag-drop">
             Upload Avatar
             <div class="img-view">
-              <img id="formAvatarImg" class="avatarImg" src="./assets/images/icon-upload.svg">
+              <img id="formAvatarImg" class="avatarImg" src="./assets/images/icon-upload.svg" alt="Upload">
               <p>
                 Drag and drop or click to upload
               </p>
             </div>
             <div class="infoParagraph">
-                <img class="iconInfo" src="./assets/images/icon-info.svg">
-                <p class="uploadImgInfo">Upload your photo (JPG or PNG, max size: 500KB).</p>
+                <img class="iconInfo" src="./assets/images/icon-info.svg" alt="Information about uploading your photo." >
+                <p aria-live="assertive" role="alert" class="uploadImgInfo">Upload your photo (JPG or PNG, max size: 500KB).</p>
             </div>
           </label>
 
-          <label for="Name">Full Name</label>
+          <label for="name">Full Name</label>
           <input name="name" id="name" class="customInput" type="text" required>
-          <p class="errorP"></p>
+          <div class="infoParagraph errorP deactivated">
+            <img class="iconInfo" src="./assets/images/icon-info2.svg" alt="Name field error.">
+            <p aria-live="assertive" role="alert">Please enter your full name.</p>
+          </div>
 
           <label for="email">Email Address</label>
           <input name="email" id="email" class="customInput" type="email" placeholder="example@email.com" required>
-          <p class="errorP"></p>
+          <div class="infoParagraph errorP deactivated">
+            <img class="iconInfo" src="./assets/images/icon-info2.svg" alt="E-mail field error">
+            <p aria-live="assertive" role="alert">Please enter a valid email adress.</p>
+          </div>
 
           <label for="githubUser">GitHub Username</label>
           <input name="githubUser" id="githubUser" class="customInput" type="text" placeholder="@yourusername" required>
-          <p class="errorP"></p>
+          <div class="infoParagraph errorP deactivated">
+            <img class="iconInfo" src="./assets/images/icon-info2.svg" alt="Github username field Error">
+            <p aria-live="assertive" role="alert">Please enter your github username.</p>
+          </div>
 
           <button aria-label="Generate My Ticket" class="customInput customBtn">Generate My Ticket</button>
         </form>
