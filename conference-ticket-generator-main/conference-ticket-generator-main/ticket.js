@@ -1,42 +1,57 @@
-//html elements
+document.addEventListener('DOMContentLoaded', handleTicketPage);
+
+//DOM elements
 
 const ticketHeader = document.querySelector('.ticketHeader');
 const ticketAvatarImg = document.querySelector('#ticketAvatarImg');
 const fullNameDisplay = document.querySelectorAll('.fullNameDisplay');
 const fullEmailDisplay = document.querySelector('#fullEmailDisplay');
 const githubProfile = document.querySelector('.githubProfile p');
+const githubProfileLink = document.querySelector('.githubProfile a');
 const ticketNumber = document.querySelector('.ticketNumber p');
 const todaysDate = document.querySelector('.todaysDate');
 const currentLocation = document.querySelector('.currentLocation');
 
 //ticket obj
 
-let ticket = JSON.parse(sessionStorage.getItem('ticketData'));
+let ticket = null;
 
-const parsedDate = new Date(ticket.currentDate);
+try {
+    ticket = JSON.parse(sessionStorage.getItem('ticketData'));
+} catch (e) {
+    console.error("Invalid ticket data in sessionStorage:", e);
+}
 
-document.addEventListener('DOMContentLoaded', () =>
-{
-    if(!(sessionStorage.getItem('accesValidation'))){
-        location.href = 'index.html';
+function githubLink(tag){
+    let link = tag.replace('@', '');
+    return `https://github.com/${link}`
+}
+
+function handleTicketPage(){
+    //validation
+    if(!(sessionStorage.getItem('accesValidation')) || !ticket){
+        location.href = 'index.html?acessError=FormNotFilled';
     }
-    if(ticket.avatar){
+    if(ticket?.avatar){
         ticketAvatarImg.src = ticket.avatar;
     }
-    if(ticket.fullName){
+    if(ticket?.fullName){
         fullNameDisplay.forEach(element => {
         element.textContent = ticket.fullName;
         });
     }
-    if(ticket.email){
+    if(ticket?.email){
         fullEmailDisplay.textContent = ticket.email;
     }
 
-    if(ticket.githubUser){
+    if(ticket?.githubUser){
         githubProfile.textContent = ticket.githubUser;
+        githubProfileLink.href = githubLink(ticket.githubUser);
     }
 
-    if(ticket.currentDate){
+    const parsedDate = new Date(ticket.currentDate);
+
+    if(ticket?.currentDate){
         todaysDate.textContent = parsedDate.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
@@ -44,6 +59,6 @@ document.addEventListener('DOMContentLoaded', () =>
         });
     }
 
-    ticketNumber.textContent = '#' + ticket.ticketID;
+    ticketNumber.textContent = `#${ticket?.ticketID}`;
 
-})
+}

@@ -24,6 +24,25 @@ src: url("../assets/fonts/static/Inconsolata-ExtraBold.ttf");
     src: url("../assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf");
 }
 
+/* COLORS */
+
+:root {
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #ffffffb3;
+    --color-accent: #f67464;
+    --color-accent-hover: #da6758;
+    --color-error: #ff6347;
+    --color-background-overlay: hsla(0, 0%, 100%, 0.1);
+    --color-background-hover: hsla(0, 0%, 100%, 0.3);
+    --color-border-light: hsla(0, 0%, 100%, 0.16);
+    --color-ticket-number: hsla(0, 0%, 7%, 0.7);
+    --color-email-highlight: #f3796a;
+    --color-github-link: hsl(228, 45%, 44%);
+}
+
+
+/* BASE */
+
 *{
     margin: 0;
     padding: 0;
@@ -35,19 +54,47 @@ html{
 
 body{
     min-height: 100%;
-    color: white;
+    color: var(--color-text-primary);
     background: url("../assets/images/background-desktop.png") no-repeat center fixed;
     background-size: cover;
-    /*background-color: rgb(63, 0, 165);*/
+    background-color: rgb(63, 0, 165);
 }
 
 nav{
     max-width: 100vw;
 }
 
+body, input, button, p, label {
+    font-family: 'inconsolataReg', Arial, Helvetica, sans-serif;
+}
+
+fieldset{
+    border: none;
+}
+
+/* TYPOGRAPHY */
+
+h1{
+    font-family: inconsolatabold, Arial, Helvetica, sans-serif;
+    font-size: 4em;
+    text-align: center;
+    margin: .5em 0;
+}
+p{
+    color: var(--color-text-secondary);
+    font-size: 1.7em;
+}
+
+a{
+    text-decoration: none;
+    display: flex;
+}
+
 .logo{
     margin:2em auto;
 }
+
+/* LAYOUT */
 
 .linesPattern{
     display: flex;
@@ -60,45 +107,29 @@ nav{
     background-size: cover;
 }
 
-.squigglyTop{
-    margin-top: 5em;
+.squigglyTop,
+.squigglyBottom,
+.circle {
     z-index: -1;
     position: fixed;
+}
+
+.squigglyTop{
+    margin-top: 5em;
     right: 0;
 }
 
 .squigglyBottom{
     width: 1130px;
     max-width: 100%;
-    z-index: -1;
-    position: fixed;
     bottom: 0;
     left: -2em;
 }
 
 .circle{
     height: 240px;
-    z-index: -1;
-    position: fixed;
     right: 20%;
     bottom: 20%;
-}
-
-h1{
-    font-family: inconsolatabold, Arial, Helvetica, sans-serif;
-    font-size: 4em;
-    text-align: center;
-    margin: .5em 0;
-}
-p{
-    color: #ffffffb3;
-    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
-    font-size: 1.7em;
-}
-
-a{
-    text-decoration: none;
-    display: flex;
 }
 
 .card{
@@ -129,21 +160,20 @@ form button.customBtn{
     font-family: inconsolatabold, Arial, Helvetica, sans-serif;
     margin: 1.5em 0;
     border: none;
-    background-color: #f67464;
+    background-color: var(--color-accent);
     color: #020116;
 }
 
 form button.customBtn:hover{
     cursor: pointer;
-    background-color: #da6758;
+    background-color: var(--color-accent-hover);
 }
 
 .customInput{
-    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
     font-size: 1.5em;
     box-sizing: border-box;
-    color: #fff;
-    background-color: hsla(0, 0%, 100%, 0.1);
+    color: var(--color-text-primary);
+    background-color: var(--color-background-overlay);
     width: 100%;
     padding: .9em;
     margin: .7em 0;
@@ -160,20 +190,7 @@ form button.customBtn:hover{
 
 .customInput:hover{
     cursor:text;
-    background-color: hsla(0, 0%, 100%, 0.3);
-}
-
-div.deactivated{
-    display: none;
-}
-
-.visuallyHidden {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
+    background-color: var(--color-background-hover);
 }
 
 [type="file"]:focus + label .img-view{
@@ -184,11 +201,10 @@ div.deactivated{
 .img-view{
     box-sizing: border-box;
     margin-top: 1em;
-    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
     padding: 15px;
     text-align: center;
-    background-color: hsla(0, 0%, 100%, 0.1);
-    border-image-source:url("../assets/images/border.png");  
+    background-color: var(--color-background-overlay);
+    border-image-source:url("../assets/images/border.png");
     border-image-repeat: round;
     border-image-slice: 33%;
     border-image-width: 16px;
@@ -198,7 +214,7 @@ div.deactivated{
 
 .img-view:hover{
     cursor: pointer;
-    background-color: hsla(0, 0%, 100%, 0.3);
+    background-color: var(--color-background-hover);
 }
 
 .img-view p{
@@ -209,7 +225,6 @@ div.deactivated{
 
 .infoParagraph{
     line-height: 1em;
-    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
     margin: 15px 0;
     display: flex;
 }
@@ -217,7 +232,7 @@ div.deactivated{
 .errorP p{
     box-sizing: border-box;
     line-height: 1.5em;
-    color: #ff6347;
+    color: var(--color-error);
 }
 
 .errorP img{
@@ -243,7 +258,7 @@ div.deactivated{
     width: 60px;
     background-color: hsla(0, 0%, 100%, 0.15);
     border: 1px solid;
-    border-color: hsla(0, 0%, 100%, 0.16);
+    border-color: var(--color-border-light);
     border-radius: 15px;
 }
 .container{
@@ -256,6 +271,8 @@ div.deactivated{
 .container > p{
     padding: 0 1.5em;
 }
+
+/* TICKET */
 
 .ticket{
     display: grid;
@@ -271,7 +288,7 @@ div.deactivated{
     box-sizing: border-box;
 }
 
-.ticketHeader{
+.ticketHeader, .ticketBody{
     margin: 1.5em;
 }
 
@@ -286,13 +303,12 @@ div.deactivated{
 }
 
 .ticketBody{
-    margin: 1.5em;
     grid-row: 2;
     display: flex;
 }
 
 .ticketBody p{
-    color: #ffffff;
+    color: var(--color-text-primary);
 }
 
 .personInfo{
@@ -308,7 +324,7 @@ p.fullNameDisplay{
 }
 
 span.fullNameDisplay{
-    background-image: linear-gradient(to right, #f3796a, #f59285, #fff);
+    background-image: linear-gradient(to right, var(--color-email-highlight), #f59285, #fff);
     color: transparent;
     background-clip: text;
 }
@@ -316,7 +332,6 @@ span.fullNameDisplay{
 .githubProfile{
     display: flex;
     line-height: 1.2em;
-    font-family: inconsolataReg, Arial, Helvetica, sans-serif;
     font-size: 1.2em;
 }
 
@@ -340,21 +355,23 @@ span.fullNameDisplay{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: hsla(0, 0%, 7%, 0.7);
+    color: var(--color-ticket-number);
     writing-mode: vertical-rl;
     text-orientation: mixed;
 }
 
 #fullNameDisplay{
-    background-image: linear-gradient(to right, #f3796a, #fff);
+    background-image: linear-gradient(to right, var(--color-email-highlight), #fff);
     color: transparent;
     background-clip: text;
 }
 
 
 #fullEmailDisplay{
-    color: #f3796a;
+    color: var(--color-email-highlight);
 }
+
+/* ATTRIBUTION */
 
 .attribution {
 
@@ -366,10 +383,24 @@ span.fullNameDisplay{
 }
 .attribution a {
     display:inline;
-    color: hsl(228, 45%, 44%);
+    color: var(--color-github-link);
+}
+/* VISUAL UTILITIES */
+
+.visuallyHidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
 }
 
-/*Mobile*/
+div.deactivated{
+    display: none;
+}
+
+/* MOBILE / MEDIA QUERIES*/
 
 @media screen and (max-width: 799px){
     .squigglyBottom{
@@ -395,30 +426,27 @@ span.fullNameDisplay{
         width: 16em;
     }
     
-    .card{
+    .card, .container{
         max-width: 100%;
         padding: 1em;
-    }
-
-    .container{
-        width: 100%;
-        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .ticket{
         width: 100%;
         height: auto;
-        aspect-ratio: 584 / 275;
+        aspect-ratio: 580 / 275;
     }
 
     .ticketHeader{
         padding: 1em 0 0 1em;
-        margin: 0;
-        box-sizing: border-box;
     }
 
     .ticketBody{
         padding: 0 0 1em 1em;
+    }
+    
+    .ticketHeader, .ticketBody{
         margin: 0;
         box-sizing: border-box;
     }
@@ -449,7 +477,7 @@ span.fullNameDisplay{
 }
 
 @media screen and (max-width: 425px){
-    .card{
+    .card, .container{
         margin: 0 0;
         padding: 0;
     }

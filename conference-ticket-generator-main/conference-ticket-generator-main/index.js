@@ -1,6 +1,6 @@
 //ticket class
 
-class ticketInfo{
+class TicketInfo{
     constructor(avatar, fullName, email, githubUser, ticketID, currentDate){
 
         this.avatar = avatar;
@@ -13,7 +13,11 @@ class ticketInfo{
     }
 }
 
-//Image upload treatment
+const MAX_IMAGE_SIZE = 500000; // 500kb
+const ERROR_COLOR = '#ff6347';
+const DEFAULT_COLOR = '#ffffffb3';
+
+//DOM ELEMENTS
 
 const avatarImg = document.querySelectorAll('.avatarImg');
 const imageUpload = document.querySelector('#imageUpload');
@@ -21,6 +25,15 @@ const mainForm = document.querySelector('#mainForm');
 const dragDrop = document.getElementById('drag-drop');
 const uploadImgInfo = document.querySelector('.uploadImgInfo');
 const iconInfo = document.querySelector('.iconInfo');
+
+const fNameHtmlObj = document.querySelector('#name');
+const emailHtmlObj = document.querySelector('#email');
+const githubUserHtmlObj = document.querySelector('#githubUser');
+
+let errorP = document.querySelectorAll('.errorP');
+let errorParagraphs = document.querySelectorAll('.errorP p');
+
+//Image upload treatment
 let avatarImgURL = ''
 
 imageUpload.addEventListener("change", () => {
@@ -28,17 +41,17 @@ imageUpload.addEventListener("change", () => {
 })
 
 function uploadImgFile(imgFile = ''){
-    imageFile = imgFile || imageUpload.files[0];
+    const imageFile = imgFile || imageUpload.files[0];
 
-    if(imageFile.size > 500000){
+    if(imageFile.size > MAX_IMAGE_SIZE){
         iconInfo.src = './assets/images/icon-info2.svg'
-        uploadImgInfo.style.color = '#ff6347';
+        uploadImgInfo.style.color = ERROR_COLOR;
         uploadImgInfo.textContent = 'File too Large, please upload a file under 500kb.';
         return;
     }
 
     iconInfo.src = './assets/images/icon-info.svg'
-    uploadImgInfo.style.color = '#ffffffb3';
+    uploadImgInfo.style.color = DEFAULT_COLOR;
     uploadImgInfo.textContent = 'Upload your photo (JPG or PNG, max size: 500KB).';
 
     const reader = new FileReader();
@@ -46,7 +59,7 @@ function uploadImgFile(imgFile = ''){
     reader.addEventListener("load", () => {
         avatarImgURL = reader.result;
 
-        avatarImg[0].setAttribute('src', avatarImgURL);
+        avatarImg[0].src = avatarImgURL;
     })
 
     reader.readAsDataURL(imageFile);
@@ -88,20 +101,25 @@ function ticketIDNumberGenerator(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+function showError(index) {
+    if(index > errorP.length){
+        return;
+    }
+    errorP[index].classList.remove('deactivated');
+    errorParagraphs[index].focus();
+}
+
+function hideError(index) {
+    errorP[index].classList.add('deactivated');
+}
+
 //actual submit
 
 mainForm.addEventListener('submit', e => {
 
     e.preventDefault();
 
-    //html objects
-
-    const fNameHtmlObj = document.querySelector('#name');
-    const emailHtmlObj = document.querySelector('#email');
-    const githubUserHtmlObj = document.querySelector('#githubUser');
-
-    let errorP = document.querySelectorAll('.errorP');
-    let errorParagraphs = document.querySelectorAll('.errorP p');
+    //DOM ELEMENTS VALUES
 
     let fName = fNameHtmlObj.value;
     let email = emailHtmlObj.value;
@@ -111,31 +129,28 @@ mainForm.addEventListener('submit', e => {
 
     if(!avatarImgURL){
         iconInfo.src = './assets/images/icon-info2.svg'
-        uploadImgInfo.style.color = '#ff6347';
+        uploadImgInfo.style.color = ERROR_COLOR;
         uploadImgInfo.textContent = 'Please select an image for your avatar.';
         uploadImgInfo.focus();
         return;
     }
     if(!fName){
-        errorP[0].classList.remove('deactivated');
-        errorParagraphs[0].focus();
+        showError(0);
         return;
     }
-    errorP[0].classList.add('deactivated');
+    hideError(0);
 
-    if(validateEmail(email) == false || !email){
-        errorP[1].classList.remove('deactivated');
-        errorParagraphs[1].focus();
+    if(!validateEmail(email)){
+        showError(1);
         return;
     }
-    errorP[1].classList.add('deactivated');
+    hideError(1);
 
     if(validategGithub(githubUser) == false|| !githubUser){
-        errorP[2].classList.remove('deactivated');
-        errorParagraphs[2].focus();
+        showError(2);
         return;
     }
-    errorP[2].classList.add('deactivated');
+    hideError(2);
 
     //transfer to another page
 
@@ -143,13 +158,11 @@ mainForm.addEventListener('submit', e => {
 
     const todayDate = new Date();
     
-    let ticket = new ticketInfo(avatarImgURL, fName, email, githubUser, ticketIDnumber, todayDate);
+    let ticket = new TicketInfo(avatarImgURL, fName, email, githubUser, ticketIDnumber, todayDate);
 
     sessionStorage.setItem("ticketData", JSON.stringify(ticket));
 
     sessionStorage.setItem('accesValidation', true);
-
-    console.log(sessionStorage.getItem('ticketData'));
 
     window.location.href = "ticket.html";
 
