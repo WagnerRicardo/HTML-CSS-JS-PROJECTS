@@ -218,7 +218,9 @@ form button.customBtn:hover{
     background-color: var(--color-background-hover);
 }
 
-.img-view p{
+.img-view span{
+    display: block;
+    color: var(--color-text-secondary);
     padding: .5em;
     box-sizing: border-box;
     font-size: .9em;
@@ -246,7 +248,8 @@ form button.customBtn:hover{
     width: 1em;
 }
 
-.infoParagraph p{
+.infoParagraph span{
+    color: var(--color-text-secondary);
     font-size: 15px;
 }
 
