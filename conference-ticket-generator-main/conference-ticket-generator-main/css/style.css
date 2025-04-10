@@ -199,6 +199,7 @@ form button.customBtn:hover{
 }
 
 .img-view{
+    display: block;
     box-sizing: border-box;
     margin-top: 1em;
     padding: 15px;
