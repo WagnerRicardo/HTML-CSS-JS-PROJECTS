@@ -97,11 +97,11 @@ a{
 /* LAYOUT */
 
 .linesPattern{
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     width: 100%;
     background: url("../assets/images/pattern-lines.svg") repeat center center fixed;
     background-size: cover;
