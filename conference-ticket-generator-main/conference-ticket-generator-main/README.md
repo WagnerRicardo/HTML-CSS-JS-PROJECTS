@@ -42,7 +42,7 @@ Your users should be able to:
 
 ## Live site
 
-🔗 [Insert your GitHub Pages or Netlify/Vercel live link here]
+🔗 https://wagnerricardo.github.io/HTML-CSS-JS-PROJECTS/conference-ticket-generator-main/conference-ticket-generator-main/
 
 ## What I learned
 
